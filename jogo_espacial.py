@@ -7,8 +7,8 @@ altura = 400
 class Alien(pygame.sprite.Sprite):
     def __init__(self, posx, posy):
         pygame.sprite.Sprite.__init__(self)
-        self.ImagemAlien1 = pygame.image.load('image/inimigo.jpg')
-        self.ImagemAlien2 = pygame.image.load('image/inimigo1.png')
+        self.ImagemAlien1 = pygame.image.load('image/NaveAzul.png')
+        self.ImagemAlien2 = pygame.image.load('image/NaveLaranja.png')
 
         self.listaImage = [self.ImagemAlien1,self.ImagemAlien2]
         self.posImagem = 0
@@ -36,7 +36,7 @@ class Alien(pygame.sprite.Sprite):
 class Bala(pygame.sprite.Sprite):
     def __init__(self, posx, posy):
         pygame.sprite.Sprite.__init__(self)
-        self.ImagemBala = pygame.image.load('image/bala2.png')
+        self.ImagemBala = pygame.image.load('image/TiroJogador.png')
         self.rect = self.ImagemBala.get_rect()
         self.velocidadeBala = 5
         self.rect.top = posy
@@ -51,7 +51,7 @@ class Bala(pygame.sprite.Sprite):
 class naveEspacial(pygame.sprite.Sprite):
     def __init__(self):
         pygame.sprite.Sprite.__init__(self)
-        self.ImagemNave = pygame.image.load('image/nave3.png')
+        self.ImagemNave = pygame.image.load('image/NaveVermelha.png')
         self.rect = self.ImagemNave.get_rect()  # coloca a imagem em uma area retangular
         self.rect.centerx = largura/2
         self.rect.centery = altura - 50
@@ -123,6 +123,7 @@ def invasaoEspaco():
                 x.trajetoria()
                 if x.rect.top < -10:
                     jogador.listadisparo.remove(x)
+        # falta fazer a colisao e movimentar os aliens na tela
         pygame.display.update()
 
 invasaoEspaco()
